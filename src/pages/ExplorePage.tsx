@@ -48,7 +48,7 @@ import { setCanonical, setTitle } from "../seo";
 import { CARD, PRIMARY_BUTTON, QUIET_BUTTON } from "../components/ui";
 
 /** The bar's actions, a little tighter so that both fit beside the board. */
-const BAR_BUTTON = QUIET_BUTTON.replace("px-2.5", "px-2");
+const BAR_BUTTON = QUIET_BUTTON.replace("px-2.5", "px-1.5");
 
 /** A session at a club: the boards the menu offers. */
 const BOARD_COUNT = 36;
@@ -83,7 +83,7 @@ function BoardBar({
   onNext: () => void;
 }) {
   return (
-    <div className="flex items-center gap-2 border-b border-gray-100 py-2 pr-2 pl-3.5">
+    <div className="flex items-center gap-1 border-b border-gray-100 py-2 pr-2 pl-3.5">
       <label className="relative flex shrink-0 flex-col">
         <span className="inline-flex items-center gap-1 text-base font-semibold text-gray-900">
           Board {boardNumber}
@@ -200,7 +200,7 @@ function Result({
             <>
               <CallDisplay call={bid} />
               {contract?.doubled && ` ${contract.doubled}`}{" "}
-              <span className="text-[15px] font-normal text-gray-500">
+              <span className="text-[16px] font-normal text-gray-500">
                 by {POSITION_NAMES[declarer]}
               </span>
             </>

@@ -32,6 +32,14 @@ import {
   TONE_PILL,
 } from "./ui";
 
+/*
+ * The three actions share one row across a 375-pixel phone, so they pad
+ * their labels less than a button standing alone; "Next hand" takes what
+ * width is left over.
+ */
+const SNUG_SECONDARY = SECONDARY_BUTTON.replace("px-3", "px-2");
+const SNUG_PRIMARY = PRIMARY_BUTTON.replace("px-4", "px-2");
+
 /**
  * What the hand came to, as the card's headline: the contract, and whether
  * it makes. The result is the first thing a learner looks for, so it reads
@@ -222,20 +230,20 @@ export function PracticeReview({
         className="sticky bottom-0 -mx-4 -mb-4 flex gap-2 border-t border-gray-200 bg-gray-50/90 px-4 pt-3 pb-[max(1rem,env(safe-area-inset-bottom))] backdrop-blur"
         data-testid="review-actions"
       >
-        <button type="button" onClick={onRestart} className={SECONDARY_BUTTON}>
+        <button type="button" onClick={onRestart} className={SNUG_SECONDARY}>
           Bid again
         </button>
         <ShareButton
           url={shareUrl}
           title="SAYC Bridge Practice Hand"
           text="Try bidding this bridge hand"
-          className={SECONDARY_BUTTON}
+          className={SNUG_SECONDARY}
         />
         <button
           type="button"
           onClick={onNextHand}
           disabled={thinking}
-          className={`${PRIMARY_BUTTON} flex-1`}
+          className={`${SNUG_PRIMARY} flex-1`}
         >
           Next hand
         </button>

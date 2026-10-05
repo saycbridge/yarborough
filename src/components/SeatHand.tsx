@@ -80,7 +80,7 @@ export function SeatHand({
       >
         <GhostCards />
         <span>
-          <span className="block text-[15px] font-semibold text-emerald-700">
+          <span className="block text-[16px] font-semibold text-emerald-700">
             Enter {name}'s hand
           </span>
           <span className="block text-xs text-gray-500">
@@ -101,7 +101,7 @@ export function SeatHand({
         className={`${CARD} animate-fade flex w-full items-center gap-3.5 px-3.5 py-3 text-left active:bg-gray-50`}
       >
         <CardBacks />
-        <span className="text-[15px] font-semibold text-gray-900">
+        <span className="text-[16px] font-semibold text-gray-900">
           {name}'s hand
         </span>
         <span className="ml-auto flex items-center gap-1.5 text-sm font-semibold text-emerald-700">

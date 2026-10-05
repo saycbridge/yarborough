@@ -13,7 +13,7 @@ function VerdictBadge({ node }: { node: NodeStats }) {
   const weak = node.verdict === "weak spot";
   return (
     <span
-      className={`text-[11px] font-semibold px-1.5 py-0.5 rounded-full whitespace-nowrap ${
+      className={`text-[12px] font-semibold px-1.5 py-0.5 rounded-full whitespace-nowrap ${
         weak ? "bg-red-100 text-red-800" : "bg-emerald-100 text-emerald-800"
       }`}
     >

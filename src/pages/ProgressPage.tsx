@@ -103,7 +103,7 @@ function Highlights({
         <div className="divide-y divide-gray-100">
           {nodes.map((node) => (
             <div key={node.path.join("/")}>
-              <div className="text-[11px] text-gray-400 pt-1.5 -mb-1">
+              <div className="text-[12px] text-gray-400 pt-1.5 -mb-1">
                 {node.path[0]}
               </div>
               <CategoryRow node={node} onPractice={onPractice} />

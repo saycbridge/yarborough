@@ -69,9 +69,9 @@ afterEach(() => {
 });
 
 /** The review as the page lays it out, inside a phone-sized scrolling box. */
-function renderReview() {
+function renderReview(width = PHONE.width) {
   viewport = document.createElement("div");
-  viewport.style.width = `${PHONE.width}px`;
+  viewport.style.width = `${width}px`;
   viewport.style.height = `${PHONE.height}px`;
   viewport.style.overflowY = "auto";
   document.body.style.margin = "0";
@@ -187,5 +187,30 @@ describe("PracticeReview layout", () => {
     const read = diagram.getBoundingClientRect().bottom - top;
     expect(read).toBeGreaterThan(0);
     expect(read).toBeLessThan(PHONE.height * 1.5);
+  });
+
+  it("keeps each action's label on one line, down to an iPhone SE", () => {
+    for (const width of [PHONE.width, 375]) {
+      renderReview(width);
+      const actions = viewport!.querySelector(
+        '[data-testid="review-actions"]',
+      )!;
+      const buttons = [...actions.querySelectorAll("button")];
+      expect(buttons.map((b) => b.textContent)).toEqual([
+        "Bid again",
+        "Share hand",
+        "Next hand",
+      ]);
+      for (const button of buttons) {
+        // A label that wraps stands two lines tall, past the 44px minimum.
+        const height = button.getBoundingClientRect().height;
+        expect(height, `${button.textContent} at ${width}px`).toBe(44);
+      }
+      expect(actions.scrollWidth).toBeLessThanOrEqual(actions.clientWidth);
+      root!.unmount();
+      viewport!.remove();
+    }
+    root = undefined;
+    viewport = undefined;
   });
 });

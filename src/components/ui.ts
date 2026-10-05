@@ -46,8 +46,12 @@ export const TONE_PILL = {
   neutral: "bg-gray-100 text-gray-700 ring-gray-200",
 } as const;
 
+/**
+ * A pill's corners are round on one line, and a long one that wraps on a
+ * narrow phone becomes a rounded box rather than a lozenge.
+ */
 export const PILL =
-  "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-sm font-semibold ring-1 ring-inset";
+  "inline-flex items-center gap-1.5 rounded-2xl px-2.5 py-1 text-sm font-semibold ring-1 ring-inset";
 
 /** A small action that stays out of the way until it is wanted. */
 export const QUIET_BUTTON =
