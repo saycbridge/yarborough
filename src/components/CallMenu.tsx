@@ -17,9 +17,9 @@ import { SuitText } from "./SuitText";
 const ROW = "flex w-full gap-3.5 px-3.5 text-left";
 const BUBBLE =
   "flex shrink-0 items-center justify-center rounded-full font-semibold";
-const BIG_BUBBLE = `${BUBBLE} mt-px h-10 w-10 text-sm`;
+const BIG_BUBBLE = `${BUBBLE} mt-px h-11 w-11 text-sm`;
 const TAG =
-  "mr-1.5 inline-block rounded px-1.5 py-px align-[1px] text-[11px] font-semibold uppercase tracking-wide";
+  "mr-1.5 inline-block rounded px-1.5 py-px align-[1px] text-[12px] font-semibold uppercase tracking-wide";
 
 /** What SAYC means by a call: its rule, its constraints, its description. */
 function Meaning({ interp }: { interp: CallInterpretation }) {
@@ -63,11 +63,11 @@ function WeighedRow({
     return (
       <>
         <span
-          className={`${BUBBLE} mx-1 h-8 w-8 bg-gray-100 text-xs text-gray-400`}
+          className={`${BUBBLE} mx-1 h-9 w-9 bg-gray-100 text-xs text-gray-400`}
         >
           <CallDisplay call={weighed.call} />
         </span>
-        <span className="self-center text-[13px] text-gray-400">
+        <span className="self-center text-[14px] text-gray-400">
           No SAYC meaning
         </span>
       </>
@@ -77,14 +77,14 @@ function WeighedRow({
   let why = null;
   if (fit === "chosen") {
     why = (
-      <div className="mt-1 text-[13px] leading-snug text-emerald-800">
+      <div className="mt-1 text-[14px] leading-snug text-emerald-800">
         <span className={`${TAG} bg-emerald-700 text-white`}>SAYC</span>
         <SuitText text={chosenText(hand, weighed.call)} />
       </div>
     );
   } else if (fit === "possible") {
     why = (
-      <div className="mt-1 text-[13px] leading-snug text-gray-600">
+      <div className="mt-1 text-[14px] leading-snug text-gray-600">
         <span
           className={`${TAG} bg-gray-100 text-gray-700 ring-1 ring-inset ring-gray-200`}
         >
@@ -101,13 +101,13 @@ function WeighedRow({
     );
   } else if (fit === "planned") {
     why = (
-      <div className="mt-0.5 text-[13px] leading-snug text-gray-500">
+      <div className="mt-0.5 text-[14px] leading-snug text-gray-500">
         Only bid as part of a plan, such as a slam try.
       </div>
     );
   } else {
     why = (
-      <div className="mt-0.5 text-[13px] leading-snug text-gray-500">
+      <div className="mt-0.5 text-[14px] leading-snug text-gray-500">
         <SuitText text={missesText(weighed.misses)} />
       </div>
     );

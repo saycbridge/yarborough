@@ -57,7 +57,7 @@ export function AccuracyChart({ blocks }: { blocks: Block[] }) {
               x={PAD.left - 6}
               y={y(tick) + 3.5}
               textAnchor="end"
-              fontSize={10}
+              fontSize={11}
               fill="#6b7280"
             >
               {Math.round(tick * 100)}%
@@ -96,13 +96,13 @@ export function AccuracyChart({ blocks }: { blocks: Block[] }) {
             />
           </g>
         ))}
-        <text x={PAD.left} y={HEIGHT - 6} fontSize={10} fill="#6b7280">
+        <text x={PAD.left} y={HEIGHT - 6} fontSize={11} fill="#6b7280">
           Hands {plotted[0].firstHand}–{plotted[0].lastHand}
         </text>
         <text
           x={WIDTH - PAD.right}
           y={HEIGHT - 6}
-          fontSize={10}
+          fontSize={11}
           fill="#6b7280"
           textAnchor="end"
         >

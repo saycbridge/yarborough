@@ -1,6 +1,27 @@
 @import "tailwindcss";
 
 /*
+ * Type sizes. Tailwind's are a point or two smaller than a phone's own text,
+ * which made the app read small on an iPhone. Here xs, sm and base are the
+ * iPhone's own footnote, subhead and body sizes, 13, 15 and 17 points, and
+ * lg and xl follow two points apart. Only text grows: spacing keeps
+ * Tailwind's scale, so a screen gets longer but no wider. The browser tests
+ * hold the rows that crowd first to one line on a 375-point phone.
+ */
+@theme {
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: calc(1.125 / 0.8125);
+  --text-sm: 0.9375rem;
+  --text-sm--line-height: calc(1.375 / 0.9375);
+  --text-base: 1.0625rem;
+  --text-base--line-height: calc(1.5 / 1.0625);
+  --text-lg: 1.1875rem;
+  --text-lg--line-height: calc(1.75 / 1.1875);
+  --text-xl: 1.3125rem;
+  --text-xl--line-height: calc(1.75 / 1.3125);
+}
+
+/*
  * Motion. Everything that moves is an arrival: a call joining the auction, a
  * panel opening, a sheet rising, a list for the next call. Nothing animates
  * on its way out, so a tap never waits on a transition and a hand turned

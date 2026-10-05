@@ -345,7 +345,7 @@ export function HandEntrySheet({
         >
           <span className="mb-1.5 h-[5px] w-9 self-center rounded-full bg-gray-300" />
           <div className="flex min-h-10 items-center">
-            <h2 className="text-[17px] font-semibold text-gray-900">
+            <h2 className="text-[18px] font-semibold text-gray-900">
               {seatName}
             </h2>
             <span className="ml-auto flex items-center gap-1">
@@ -425,13 +425,13 @@ export function HandEntrySheet({
 
         <div key={suit} className="animate-deal">
           <div
-            className={`flex items-baseline gap-2 px-[18px] pt-2.5 pb-2 text-[15px] font-semibold ${color}`}
+            className={`flex items-baseline gap-2 px-[18px] pt-2.5 pb-2 text-[16px] font-semibold ${color}`}
           >
             <span className="text-xl leading-none">{SUITS[suit].symbol}</span>
             {SUIT_NAMES[suit]}
             {problem && (
               <span
-                className="ml-auto text-[13px] font-medium text-red-600"
+                className="ml-auto text-[14px] font-medium text-red-600"
                 data-testid="miscount"
               >
                 {problem}

@@ -27,6 +27,13 @@ import { foundOnRetry } from "../practice/verdicts";
 
 const USER_POSITION = "S";
 
+/*
+ * The four quiet actions under the bidding box share one line across a
+ * 375-pixel phone. A point under the page's body text leaves them room to
+ * stand apart there rather than run together.
+ */
+const ACTION = TEXT_BUTTON.replace("text-sm", "text-[14px]");
+
 export function PracticePage({ boardId: boardIdProp }: { boardId?: string }) {
   const { boardId: boardIdParam } = useParams<{ boardId: string }>();
   // The root route has no :boardId in the URL and supplies one instead.
@@ -240,26 +247,26 @@ function PracticeBoard({
                 {session.hintShown ? "Hide SAYC bid" : "Show SAYC bid"}
               </button>
             </div>
-            <div className="flex justify-center gap-5">
+            <div className="flex flex-wrap justify-between gap-x-1">
               <button
                 type="button"
                 onClick={session.takeBack}
                 disabled={!session.canTakeBack}
-                className={`${TEXT_BUTTON} disabled:opacity-40 disabled:no-underline`}
+                className={`${ACTION} disabled:opacity-40 disabled:no-underline`}
               >
                 Undo bid
               </button>
               <button
                 type="button"
                 onClick={fromTheTop(session.restart)}
-                className={TEXT_BUTTON}
+                className={ACTION}
               >
                 Restart hand
               </button>
               <button
                 type="button"
                 onClick={fromTheTop(() => session.dealNext("skip hand"))}
-                className={TEXT_BUTTON}
+                className={ACTION}
               >
                 Skip hand
               </button>
@@ -267,7 +274,7 @@ function PracticeBoard({
                 url={shareUrl}
                 title="SAYC Bridge Practice Hand"
                 text="Try bidding this bridge hand"
-                className={TEXT_BUTTON}
+                className={ACTION}
               />
             </div>
           </>
